@@ -1,0 +1,17 @@
+D:\ania\Project_Diary\Project_Diary\bin\Release\net8.0-windows\Project_Diary.exe
+D:\ania\Project_Diary\Project_Diary\bin\Release\net8.0-windows\Project_Diary.deps.json
+D:\ania\Project_Diary\Project_Diary\bin\Release\net8.0-windows\Project_Diary.runtimeconfig.json
+D:\ania\Project_Diary\Project_Diary\bin\Release\net8.0-windows\Project_Diary.dll
+D:\ania\Project_Diary\Project_Diary\bin\Release\net8.0-windows\Project_Diary.pdb
+D:\ania\Project_Diary\Project_Diary\obj\Release\net8.0-windows\Project_Diary.Form1.resources
+D:\ania\Project_Diary\Project_Diary\obj\Release\net8.0-windows\Project_Diary.Form2.resources
+D:\ania\Project_Diary\Project_Diary\obj\Release\net8.0-windows\Project_Diary.csproj.GenerateResource.cache
+D:\ania\Project_Diary\Project_Diary\obj\Release\net8.0-windows\Project_Diary.GeneratedMSBuildEditorConfig.editorconfig
+D:\ania\Project_Diary\Project_Diary\obj\Release\net8.0-windows\Project_Diary.AssemblyInfoInputs.cache
+D:\ania\Project_Diary\Project_Diary\obj\Release\net8.0-windows\Project_Diary.AssemblyInfo.cs
+D:\ania\Project_Diary\Project_Diary\obj\Release\net8.0-windows\Project_Diary.csproj.CoreCompileInputs.cache
+D:\ania\Project_Diary\Project_Diary\obj\Release\net8.0-windows\Project_Diary.dll
+D:\ania\Project_Diary\Project_Diary\obj\Release\net8.0-windows\refint\Project_Diary.dll
+D:\ania\Project_Diary\Project_Diary\obj\Release\net8.0-windows\Project_Diary.pdb
+D:\ania\Project_Diary\Project_Diary\obj\Release\net8.0-windows\Project_Diary.genruntimeconfig.cache
+D:\ania\Project_Diary\Project_Diary\obj\Release\net8.0-windows\ref\Project_Diary.dll

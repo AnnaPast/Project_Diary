@@ -1,0 +1,67 @@
+{
+  "2024-01-25T00:00:00": {
+    "Color": {
+      "R": 190,
+      "G": 245,
+      "B": 243,
+      "A": 255,
+      "IsKnownColor": false,
+      "IsEmpty": false,
+      "IsNamedColor": false,
+      "IsSystemColor": false,
+      "Name": "ffbef5f3"
+    }
+  },
+  "2024-01-26T00:00:00": {
+    "Color": {
+      "R": 213,
+      "G": 110,
+      "B": 26,
+      "A": 255,
+      "IsKnownColor": false,
+      "IsEmpty": false,
+      "IsNamedColor": false,
+      "IsSystemColor": false,
+      "Name": "ffd56e1a"
+    }
+  },
+  "2024-01-20T00:00:00": {
+    "Color": {
+      "R": 241,
+      "G": 236,
+      "B": 26,
+      "A": 255,
+      "IsKnownColor": false,
+      "IsEmpty": false,
+      "IsNamedColor": false,
+      "IsSystemColor": false,
+      "Name": "fff1ec1a"
+    }
+  },
+  "2024-01-31T00:00:00": {
+    "Color": {
+      "R": 68,
+      "G": 95,
+      "B": 52,
+      "A": 255,
+      "IsKnownColor": false,
+      "IsEmpty": false,
+      "IsNamedColor": false,
+      "IsSystemColor": false,
+      "Name": "ff445f34"
+    }
+  },
+  "2024-01-24T00:00:00": {
+    "Color": {
+      "R": 165,
+      "G": 94,
+      "B": 231,
+      "A": 255,
+      "IsKnownColor": false,
+      "IsEmpty": false,
+      "IsNamedColor": false,
+      "IsSystemColor": false,
+      "Name": "ffa55ee7"
+    }
+  }
+}

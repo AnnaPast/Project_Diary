@@ -1,0 +1,5 @@
+D:\ania\publish\Project_Diary.exe
+D:\ania\publish\Project_Diary.dll
+D:\ania\publish\Project_Diary.deps.json
+D:\ania\publish\Project_Diary.runtimeconfig.json
+D:\ania\publish\Project_Diary.pdb

@@ -15,3 +15,4 @@ D:\ania\Project_Diary\Project_Diary\obj\Debug\net8.0-windows\refint\Project_Diar
 D:\ania\Project_Diary\Project_Diary\obj\Debug\net8.0-windows\Project_Diary.pdb
 D:\ania\Project_Diary\Project_Diary\obj\Debug\net8.0-windows\Project_Diary.genruntimeconfig.cache
 D:\ania\Project_Diary\Project_Diary\obj\Debug\net8.0-windows\ref\Project_Diary.dll
+D:\ania\Project_Diary\Project_Diary\obj\Debug\net8.0-windows\Project_Diary.sourcelink.json

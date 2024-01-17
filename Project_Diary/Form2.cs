@@ -6,21 +6,17 @@ namespace Project_Diary
 
     public partial class Form2 : Form
     {
-        public Dictionary<DateTime, DiaryProperties> diaryPropertiesDictionary = new Dictionary<DateTime, DiaryProperties>();
-        public class DiaryProperties
+
+        private Dictionary<DateTime, Form1.DiaryProperties> diaryDictionary;
+        private DateTime selectedDate;
+
+        public Form2(Dictionary<DateTime, Form1.DiaryProperties> diaryPropertiesDictionary, DateTime selectedDate)
         {
-            public string? Mood { get; set; }
-            public string? NotesList { get; set; }
-            public string? ShoppingList { get; set; }
-        }
-        string JsonFilePath = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "/diary_properties.json"; //возвращает директорию в  которой находится исполняемый файл текущего приложения. 
-        public DateTime selectedDate;
-        public Form2(DateTime selectedDate)
-        {
-            Debug.WriteLine("JsonFile path: " + JsonFilePath);
-            ReadDictionaryFromFile(JsonFilePath);
-            InitializeComponent();
+            this.diaryDictionary = diaryPropertiesDictionary;
             this.selectedDate = selectedDate;
+
+
+            InitializeComponent();
 
             if (diaryPropertiesDictionary.ContainsKey(selectedDate) && diaryPropertiesDictionary[selectedDate].Mood != null)
             {
@@ -34,62 +30,35 @@ namespace Project_Diary
 
 
         }
-        private void ReadDictionaryFromFile(string JsonFilePathVar)
-        {
-            if (File.Exists(JsonFilePathVar))
-            {
-                string json = File.ReadAllText(JsonFilePathVar);
-
-                diaryPropertiesDictionary = JsonSerializer.Deserialize<Dictionary<DateTime, DiaryProperties>>(json);//десириализация из json в dictionart
-            }
-
-            // Print the dictionary to the debug output
-            LogoutDictionary();
-        }
         private void LogoutDictionary()
         {
             Debug.WriteLine("Diary properties:");
-            foreach (var element in diaryPropertiesDictionary) //перебор всех элементов dictionary
+            foreach (var element in this.diaryDictionary) //перебор всех элементов dictionary
             {
                 DateTime date = element.Key;
-                DiaryProperties properties = element.Value;
+                Form1.DiaryProperties properties = element.Value;
 
                 Debug.WriteLine($"Date: {date}. Mood: {properties.Mood}. NotesList: {properties.NotesList}. ShopingList: {properties.ShoppingList}");
             }
-        }
-        private void SaveDictionaryToFile(string filePath)
-        {
-            JsonSerializerOptions options = new JsonSerializerOptions //опция для структуризирования
-            {
-                WriteIndented = true
-            };
-
-            // Serialize the merged data to JSON
-            string json = JsonSerializer.Serialize(diaryPropertiesDictionary, options);
-
-            // Write the merged data to the file
-            File.WriteAllText(filePath, json);
-            LogoutDictionary();
-
         }
 
         private void MoodTracker(string mood)
         {
 
             // Create a new DiaryProperties object with the Mood parameter
-            DiaryProperties newProperties;
-            if (diaryPropertiesDictionary.ContainsKey(selectedDate))
+            Form1.DiaryProperties newProperties;
+            if (this.diaryDictionary.ContainsKey(selectedDate))
             {
-                newProperties = new DiaryProperties
+                newProperties = new Form1.DiaryProperties
                 {
                     Mood = mood,
-                    NotesList = diaryPropertiesDictionary[selectedDate].NotesList,
-                    ShoppingList = diaryPropertiesDictionary[selectedDate].ShoppingList
+                    NotesList = this.diaryDictionary[selectedDate].NotesList,
+                    ShoppingList = this.diaryDictionary[selectedDate].ShoppingList
                 };
             }
             else
             {
-                newProperties = new DiaryProperties
+                newProperties = new Form1.DiaryProperties
                 {
                     Mood = mood,
                 };
@@ -97,10 +66,9 @@ namespace Project_Diary
 
 
             // Add the new entry to the dictionary with the selectedDate as the key
-            diaryPropertiesDictionary[selectedDate] = newProperties;
-
+            this.diaryDictionary[selectedDate] = newProperties;
+            LogoutDictionary();
             // Save the updated dictionary to the file
-            SaveDictionaryToFile(JsonFilePath);
         }
 
         private Color SelectColorByMood(string mood)
@@ -168,8 +136,7 @@ namespace Project_Diary
         private void button1_Click_1(object sender, EventArgs e)
         {
             ResetButtonColor();
-            MoodTracker
-                (button1.Text);
+            MoodTracker(button1.Text);
             button1.BackColor = SelectColorByMood(button1.Text);
         }
 

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Text.Json;
 using System.Windows.Forms;
@@ -7,11 +7,13 @@ namespace Project_Diary
 {
     public partial class Form1 : Form
     {
-
+        // inicializuojam dictionary tam kad sauguoti properties
         public Dictionary<DateTime, DiaryProperties> diaryPropertiesDictionary = new Dictionary<DateTime, DiaryProperties>();
-        public DateTime selectedDate { get; set; }
+        
+        public DateTime selectedDate { get; set; } //saugojam išsirinkta data su galimibe ja modifikuoti už klases
 
-        string JsonFilePath = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "/diary_properties.json"; //?????????? ?????????? ?  ??????? ????????? ??????????? ???? ???????? ??????????. 
+        // failo kelias
+        string JsonFilePath = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "/diary_properties.json"; 
 
 
         public class DiaryProperties
@@ -24,57 +26,54 @@ namespace Project_Diary
         public Form1()
         {
             Debug.WriteLine("JsonFile path: " + JsonFilePath);
-            ReadDictionaryFromFile(JsonFilePath);
+            ReadDictionaryFromFile(JsonFilePath); //skaitom jau turinčius properties iš Json
 
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            selectedDate = monthCalendar1.SelectionStart;
+            selectedDate = monthCalendar1.SelectionStart; //priskiriam selectedDate data iš kalendoriaus
 
             Form2 secondForm = new Form2(diaryPropertiesDictionary, selectedDate);
             secondForm.ShowDialog();
-            SaveDictionaryToFile(JsonFilePath);
-            Debug.WriteLine("done");
+
+            SaveDictionaryToFile(JsonFilePath); //saugojam naujas properties i dictionary po form2 uzdarymo
         
         }
-        private void ReadDictionaryFromFile(string JsonFilePathVar)
+        private void ReadDictionaryFromFile(string JsonFilePathVar) //metodas propertis skaitimui iš Json
         {
             if (File.Exists(JsonFilePathVar))
             {
-                string json = File.ReadAllText(JsonFilePathVar);
+                string json = File.ReadAllText(JsonFilePathVar); //skaitom ka turime file ir idedam i json
 
-                diaryPropertiesDictionary = JsonSerializer.Deserialize<Dictionary<DateTime, DiaryProperties>>(json);//?????????????? ?? json ? dictionart
+                diaryPropertiesDictionary = JsonSerializer.Deserialize<Dictionary<DateTime, DiaryProperties>>(json); //idedam desirealizota informacija i diaryPropertiesDictionary
             }
 
-            // Print the dictionary to the debug output
-            LogoutDictionary();
+            LogoutDictionary(); 
         }
-        private void LogoutDictionary()
+        private void LogoutDictionary() //debugingui
         {
             Debug.WriteLine("Diary properties:");
-            foreach (var element in diaryPropertiesDictionary) //??????? ???? ????????? dictionary
-                {
-                    DateTime date = element.Key;
-                    DiaryProperties properties = element.Value;
+            foreach (var element in diaryPropertiesDictionary)
+            {
+                DateTime date = element.Key;
+                DiaryProperties properties = element.Value;
 
-                    Debug.WriteLine($"Date: {date}. Mood: {properties.Mood}. NotesList: {properties.NotesList}. ShopingList: {properties.ShoppingList}");
-                }
+                Debug.WriteLine($"Date: {date}. Mood: {properties.Mood}. NotesList: {properties.NotesList}. ShopingList: {properties.ShoppingList}");
+            }
         }
 
-        private void SaveDictionaryToFile(string filePath)
+        private void SaveDictionaryToFile(string filePath) //metodas informacijos saugojimui json file
         {
-            JsonSerializerOptions options = new JsonSerializerOptions //????? ??? ??????????????????
+            JsonSerializerOptions options = new JsonSerializerOptions //nauduojau iš interneto
             {
                 WriteIndented = true
             };
 
-            // Serialize the merged data to JSON
-            string json = JsonSerializer.Serialize(diaryPropertiesDictionary, options);
+            string json = JsonSerializer.Serialize(diaryPropertiesDictionary, options); //serializuoja duomenis
 
-            // Write the merged data to the file
-            File.WriteAllText(filePath, json);
+            File.WriteAllText(filePath, json); //irašom i file
             LogoutDictionary();
 
         }

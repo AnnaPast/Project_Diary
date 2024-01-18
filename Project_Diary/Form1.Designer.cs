@@ -39,7 +39,8 @@
     new DateTime(2024, 1, 23, 0, 0, 0, 0)
     };
             monthCalendar1.FirstDayOfWeek = Day.Monday;
-            monthCalendar1.Location = new Point(18, 18);
+            monthCalendar1.Location = new Point(19, 21);
+            monthCalendar1.Margin = new Padding(10, 12, 10, 12);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 0;
             monthCalendar1.TitleBackColor = SystemColors.ActiveCaptionText;
@@ -48,22 +49,25 @@
             // 
             // button1
             // 
-            button1.Location = new Point(77, 192);
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            button1.Location = new Point(42, 244);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(107, 23);
+            button1.Size = new Size(151, 44);
             button1.TabIndex = 1;
-            button1.Text = "Fill the Diary";
+            button1.Text = "Fill the diary";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(921, 489);
+            ClientSize = new Size(247, 312);
             Controls.Add(button1);
             Controls.Add(monthCalendar1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Diary";
             Load += Form1_Load;

@@ -6,9 +6,9 @@ namespace Project_Diary
 
     public partial class Form2 : Form
     {
-
-        private Dictionary<DateTime, Form1.DiaryProperties> diaryDictionary;
-        private DateTime selectedDate;
+        
+        private Dictionary<DateTime, Form1.DiaryProperties> diaryDictionary;//properties iš Form1 saugojam i šita dictionry
+        private DateTime selectedDate; //išrinkta data iš Form1
 
         public Form2(Dictionary<DateTime, Form1.DiaryProperties> diaryPropertiesDictionary, DateTime selectedDate)
         {
@@ -115,7 +115,7 @@ namespace Project_Diary
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-            // label2.Text = selectedDate.ToShortDateString();
+            // label1.Text = selectedDate.ToShortDateString();
         }
         private void label1_Click(object sender, EventArgs e)
         { }
